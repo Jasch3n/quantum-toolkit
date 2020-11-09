@@ -29,8 +29,15 @@ from schrodinger_solve import *
 # plt.plot()
 # plt.show()
 
+def free_particle_pot(x):
+    return 0
+
 def harmonic_oscillator_pot(x, omega=1):
     return 0.5 * omega**2 * x ** 2
 
-def free_particle_pot(x):
-    return 0
+def step_potential(x, height=20):
+    return height * np.heaviside(x, 1)
+
+step_potential_eq = SchrodingerEquation(step_potential)
+step_potential_eq.graph_nth_eigenstate(4)
+step_potential_eq.display_graph()
