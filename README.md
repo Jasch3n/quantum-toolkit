@@ -1,4 +1,4 @@
 # quantum-toolkit
  
 This is a program that approximates numerically solutions to the Schrodinger Equation for certain potential functions in one dimension. Below is an example of an approximated solution to a step potential. The potential is not drawn to scale to accomodate the wavefunction.
-![alt text](https://github.com/Jasch3n/quantum-toolkit/main/step_potential.jpg?raw=true)
+![alt text](https://github.com/Jasch3n/quantum-toolkit/main/step_pot.jpg?raw=true)
