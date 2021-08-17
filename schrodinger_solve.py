@@ -37,6 +37,7 @@ class SchrodingerEquation:
             to compute the eigenvectors and eigenvalues of it and sort them by
             ascending order
         """
+        print("Approximating solutions...")
         e_vals, e_vecs = np.linalg.eig(self.hamiltonian)
         sorted_e_vals_indices = np.argsort(e_vals)
         return e_vals[sorted_e_vals_indices], e_vecs[:, sorted_e_vals_indices]
@@ -54,15 +55,15 @@ class SchrodingerEquation:
         plt.ylabel("$\psi(x)$")
         title = "Wavefunciton vs. Position"
         plt.title(title)
-        plt.plot(self.x_values, self.eigensolution[1][:, n - 1], label="$\psi_{"+ str(n) + "}$")
+        plt.plot(self.x_values, self.eigensolution[1][:, n - 1], label="$\psi_{"+ str(n) + "}$ (values adjusted for scale)")
         plt.plot(self.x_values, self.potential_values/np.linalg.norm(self.potential_values), label="V(x)")
         plt.legend()
     
     def graph_superimposed(self, states):
         """
-            takes in an array of states to superimpose, and returns a vector 
+            takes in a list of states to superimpose, and returns a vector 
             that approximates the (normalized) superimposed state
-            states is an array of length at least one
+            states is a list of length at least one
         """
         plt.figure()
         plt.title("Superimposed State vs. Position")
@@ -76,8 +77,12 @@ class SchrodingerEquation:
                 label += "$\psi_" + str(states[i]) + "$"
             else:
                 label += "$\psi_" + str(states[i]) + "$ +"
+        print(label)
+        plt.ylabel(label)
+        plt.xlabel("x")
         plt.plot(self.x_values, superimposed/np.linalg.norm(superimposed), label = label)
         plt.plot(self.x_values, self.potential_values/np.linalg.norm(self.potential_values), label="V(x)")
+        plt.legend()
 
     def graph_nth_prob_density(self, n):
         """
@@ -88,7 +93,7 @@ class SchrodingerEquation:
         """
         plt.figure()
         plt.xlabel("$x$")
-        plt.ylabel("$|\psi(x)|^2$")
+        plt.ylabel("$|\psi(x)|^2$ (values adjusted for scale)")
         title = "Probability Density vs. Position"
         plt.title(title)
         plt.plot(self.x_values, self.eigensolution[1][:, n - 1] * self.eigensolution[1][:, n - 1], label="$|\psi_{"+ str(n) + "}|^2$")
@@ -111,12 +116,12 @@ class SchrodingerEquation:
 
 
 def time_evolution_anim(ase, n):
-    """[summary]
+    """Creates and displays an animation for the time evolution of the n-th
+    eigenstate of the given Schroedinger's Eq
 
     Args:
-        ase ([type]): [description]
-        n ([type]): [description]
-        t ([type]): [description]
+        ase (SchroedingerEquation): The equation to be solved and animated
+        n ([type]): The index of the eigenstate to be animated
     """
     fig, ax = plt.subplots()
 

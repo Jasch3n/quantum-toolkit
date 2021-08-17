@@ -38,6 +38,15 @@ def harmonic_oscillator_pot(x, omega=1):
 def step_potential(x, height=20):
     return height * np.heaviside(x, 1)
 
-step_potential_eq = SchrodingerEquation(step_potential)
-step_potential_eq.graph_nth_eigenstate(4)
-step_potential_eq.display_graph()
+def random_potential(x):
+    return (2.71 ** x)
+
+# step_potential_eq = SchrodingerEquation(step_potential)
+# step_potential_eq.graph_nth_eigenstate(4)
+# step_potential_eq.display_graph()
+
+test_eq = SchrodingerEquation(harmonic_oscillator_pot)
+test_eq.graph_nth_eigenstate(3)
+test_eq.graph_superimposed([1,2,3,4,5,6,7,8,9])
+# test_equation.display_graph()
+wavefunction_time_evolution_anim(test_eq, 5)
