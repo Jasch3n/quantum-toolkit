@@ -2,6 +2,8 @@
  
 This is a program that (currently) numerically approximates solutions to the Schrodinger Equation for any given potential function in one dimension. The main functionalities are provided by the `numpy` and `matplotlib` libraries. The core of the approximation relies on a crude numerical estimation of the Hessian matrix, and such an approximation will be relatively well-behaved for around the first 10 energy levels or so (tested with the harmonic oscillator potential). Look at `test.py` for some examples of code usage. 
 
+The applcation can be started by running the command `python schrodinger_solve.py`, or for the interactive application, `python -i schrodinger_solve.py`.
+
 All usage should start by creating a `SchroedingerEquation`, whose constructor takes in a function representing the potential of the Hamiltonian. 
 
 Currently, a `SchroedingerEquation` object supports the following method calls:
