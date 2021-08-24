@@ -4,11 +4,11 @@ This is a program that (currently) numerically approximates solutions to the Sch
 
 All usage should start by creating a `SchroedingerEquation`, whose constructor takes in a function representing the potential of the Hamiltonian. 
 
-Currently, a `SchroedingerEquation` object supports the following method calls:\
-- `graph_nth_eigenstate`: takes in an integer `n` and graphs the approximated `n`-th eigenstate for the given `SchroedingerEquation`\
-- `graph_superimposed`: takes in a list of integers and graphs the superimposed states of the states given\
-- `graph_nth_probability`: takes in an integer `n` and graphs the probability density function of the `n`-th eigenstate\
-- `time_evolved_state`: takes in an integer `n` and a float `t` and graphs the `n`-th eigenstate at time `t`\
+Currently, a `SchroedingerEquation` object supports the following method calls:
+- `graph_nth_eigenstate`: takes in an integer `n` and graphs the approximated `n`-th eigenstate for the given `SchroedingerEquation`
+- `graph_superimposed`: takes in a list of integers and graphs the superimposed states of the states given
+- `graph_nth_probability`: takes in an integer `n` and graphs the probability density function of the `n`-th eigenstate
+- `time_evolved_state`: takes in an integer `n` and a float `t` and graphs the `n`-th eigenstate at time `t`
 
 In addition, calling `time_evolve_anim` on a `SchroedingerEquation` and an integer `n` creates an animation of the time evolution of the `n`-th eigenstate. 
 
